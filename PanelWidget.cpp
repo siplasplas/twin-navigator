@@ -22,7 +22,4 @@ void PanelWidget::focusInEvent(QFocusEvent* event)
             mainWindow->focusedGroup = -1;
         qDebug() << mainWindow->focusedGroup;
     }
-
-
-    QTableView::focusInEvent(event);
 }

@@ -58,8 +58,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     tabsMenu->addAction(actionCloseTab);
     connect(actionCloseTab, &QAction::triggered, this, &MainWindow::onCloseTab);
 
-
-    panels[1]->setFocus();
+    focusedPanel = 0;
+    panels[focusedPanel]->currentWidget()->setFocus();
 }
 
 QWidget* MainWindow::createButtons() {
@@ -114,7 +114,12 @@ void MainWindow::handleChangePanel() {
 
 void MainWindow::onAddTab()
 {
-    qDebug() << "Control+T was pressed";
+    if (focusedPanel<0)
+        return;
+    QTabWidget *tabWidget = panels[focusedPanel];
+    PanelWidget* panelWidget = new PanelWidget(this, ".");
+    connect(panelWidget, &PanelWidget::changePanelSignal, this, &MainWindow::handleChangePanel);
+    tabWidget->addTab(panelWidget,panelWidget->getTitle());
 }
 
 void MainWindow::onCloseTab()

@@ -11,6 +11,7 @@
 #include "FilePanel.h"
 #include <QKeyEvent>
 #include <QDebug>
+#include <QCoreApplication>
 #include "MarkableItem.h"
 
 class MyDelegate : public QStyledItemDelegate {
@@ -119,7 +120,11 @@ protected:
             qDebug() << "Enter pressed";
             goSelected();
         } else  if (event->key() == Qt::Key_Tab) {
-            emit changePanelSignal();
+            if (event->modifiers() == Qt::NoModifier)
+                emit changePanelSignal();
+            else if (event->modifiers() & Qt::ControlModifier) {
+                QCoreApplication::sendEvent(parentWidget(), event);
+            }
         }
         else QTableView::keyPressEvent(event);
     }

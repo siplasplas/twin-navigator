@@ -10,7 +10,9 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     QMenuBar *menuBar = new QMenuBar;
     QMenu *fileMenu = new QMenu("File", this);
+    QMenu *tabsMenu = new QMenu("Tabs", this);
     menuBar->addMenu(fileMenu);
+    menuBar->addMenu(tabsMenu);
     this->setMenuBar(menuBar);
     QToolBar *toolbar = addToolBar("Main Toolbar");
 
@@ -45,6 +47,18 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
         statusBar->addWidget(button);
     }
     setStatusBar(statusBar);
+
+    QAction *actionAddTab = new QAction("Add tab", this);
+    actionAddTab->setShortcut(QKeySequence("Ctrl+t"));
+    tabsMenu->addAction(actionAddTab);
+    connect(actionAddTab, &QAction::triggered, this, &MainWindow::onAddTab);
+
+    QAction *actionCloseTab = new QAction("Close tab", this);
+    actionCloseTab->setShortcut(QKeySequence("ctrl+w"));
+    tabsMenu->addAction(actionCloseTab);
+    connect(actionCloseTab, &QAction::triggered, this, &MainWindow::onCloseTab);
+
+
     panels[1]->setFocus();
 }
 
@@ -96,4 +110,14 @@ void MainWindow::handleChangePanel() {
     else
         focusedPanel = 0;
     panels[focusedPanel]->currentWidget()->setFocus();
+}
+
+void MainWindow::onAddTab()
+{
+    qDebug() << "Control+T was pressed";
+}
+
+void MainWindow::onCloseTab()
+{
+    qDebug() << "Control+W was pressed";
 }

@@ -31,19 +31,6 @@ public:
     }
 };
 
-/*
-class MyDelegate : public QStyledItemDelegate {
-public:
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override {
-        MarkableItem *item = static_cast<MarkableItem*>(index.internalPointer());
-        if (item && item->isMarked) {
-            painter->fillRect(option.rect, Qt::red); // zmień na swój kolor
-        }
-        QStyledItemDelegate::paint(painter, option, index);
-    }
-};
-*/
-
 class PanelWidget : public QTableView
 {
 private:

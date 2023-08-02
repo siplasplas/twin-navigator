@@ -80,8 +80,8 @@ QWidget* MainWindow::createGroup(int index) {
     vLayout->addWidget(createButtons());
     PanelWidget* panelWidget = new PanelWidget(this, "..");
     connect(panelWidget, &PanelWidget::changePanelSignal, this, &MainWindow::handleChangePanel);
-    panels[index] = panelWidget;
     QTabWidget* tabWidget = new QTabWidget;
+    panels[index] = tabWidget;
     tabWidget->addTab(panelWidget,panelWidget->getTitle());
     vLayout->addWidget(tabWidget);
     vLayout->addWidget(new QLabel("Label", this));
@@ -95,5 +95,5 @@ void MainWindow::handleChangePanel() {
         focusedPanel = 1;
     else
         focusedPanel = 0;
-    panels[focusedPanel]->setFocus();
+    panels[focusedPanel]->currentWidget()->setFocus();
 }

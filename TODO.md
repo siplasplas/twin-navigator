@@ -1,0 +1,1 @@
+check case: no initial json at start 

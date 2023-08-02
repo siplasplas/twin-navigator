@@ -2,10 +2,12 @@
 #define TWINNAVIGATOR_MAINWINDOW_H
 
 #include <QMainWindow>
+#include "Config.h"
 
 class MainWindow: public QMainWindow {
     QWidget* createGroup(int index);
     QWidget* createButtons();
+    Config config;
 public:
     void handleChangePanel();
     QTabWidget *panels[2];

@@ -8,16 +8,12 @@
 #include <QToolButton>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
-        // Tworzenie menu
         QMenuBar *menuBar = new QMenuBar;
         QMenu *fileMenu = new QMenu("File", this);
         menuBar->addMenu(fileMenu);
         this->setMenuBar(menuBar);
-
-        // Tworzenie toolbar
         QToolBar *toolbar = addToolBar("Main Toolbar");
 
-        // Tworzenie grup widgetów
         QWidget *groupBox1 = createGroup();
         QWidget *groupBox2 = createGroup();
 
@@ -25,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
         hLayout->addWidget(groupBox1);
         hLayout->addWidget(groupBox2);
 
-        // Tworzenie labela i linii edycyjnej
         QLabel *label = new QLabel("Label", this);
         QLineEdit *lineEdit = new QLineEdit(this);
 
@@ -41,19 +36,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
         widget->setLayout(vLayout);
         setCentralWidget(widget);
 
-        // Tworzenie statusu
-//        QStatusBar *statusBar = new QStatusBar;
-//        for (int i = 0; i < 8; ++i) {
-//            statusBar->addWidget(new QLabel(QString("Section %1").arg(i+1)));
-//        }
         QStatusBar *statusBar = new QStatusBar;
         for (int i = 0; i < 8; ++i) {
             QToolButton *button = new QToolButton();
             button->setText(QString("Section %1").arg(i+1));
             button->setAutoRaise(true);
             button->setContentsMargins(0,0,0,0);
-            //button->setStyleSheet("QToolButton { border: none; }");
-//            connect(button, &QPushButton::clicked, this, &MainWindow::onButtonClicked);
             statusBar->addWidget(button);
         }
         setStatusBar(statusBar);

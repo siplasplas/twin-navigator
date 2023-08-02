@@ -17,7 +17,8 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES main.cpp FilePanel.h PanelWidget.h MarkableItem.h
         MainWindow.cpp
-        MainWindow.h)
+        MainWindow.h
+        PanelWidget.cpp)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(${PROJECT_NAME}

@@ -14,12 +14,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
         this->setMenuBar(menuBar);
         QToolBar *toolbar = addToolBar("Main Toolbar");
 
-        QWidget *groupBox1 = createGroup();
-        QWidget *groupBox2 = createGroup();
+        groups[0] = createGroup();
+        groups[1] = createGroup();
 
         QHBoxLayout *hLayout = new QHBoxLayout;
-        hLayout->addWidget(groupBox1);
-        hLayout->addWidget(groupBox2);
+        hLayout->addWidget(groups[0]);
+        hLayout->addWidget(groups[1]);
 
         QLabel *label = new QLabel("Label", this);
         QLineEdit *lineEdit = new QLineEdit(this);

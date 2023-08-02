@@ -120,11 +120,7 @@ protected:
         else QTableView::keyPressEvent(event);
     }
 
-    void focusInEvent(QFocusEvent* event) override
-    {
-        auto parent = parentWidget();
-        QTableView::focusInEvent(event);
-    }
+    void focusInEvent(QFocusEvent* event) override;
 
     void mouseDoubleClickEvent(QMouseEvent* event) override {
         qDebug() << "Double click";

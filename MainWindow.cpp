@@ -14,12 +14,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     this->setMenuBar(menuBar);
     QToolBar *toolbar = addToolBar("Main Toolbar");
 
-    groups[0] = createGroup();
-    groups[1] = createGroup();
+    auto group0 = createGroup(0);
+    auto group1 = createGroup(1);
 
     QHBoxLayout *hLayout = new QHBoxLayout;
-    hLayout->addWidget(groups[0]);
-    hLayout->addWidget(groups[1]);
+    hLayout->addWidget(group0);
+    hLayout->addWidget(group1);
 
     QLabel *label = new QLabel("Label", this);
     QLineEdit *lineEdit = new QLineEdit(this);
@@ -45,6 +45,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
         statusBar->addWidget(button);
     }
     setStatusBar(statusBar);
+    panels[1]->setFocus();
 }
 
 QWidget* MainWindow::createButtons() {
@@ -68,7 +69,7 @@ QWidget* MainWindow::createButtons() {
     return widget;
 }
 
-QWidget* MainWindow::createGroup() {
+QWidget* MainWindow::createGroup(int index) {
     QWidget *widget = new QWidget(this);
 
     QVBoxLayout *vLayout = new QVBoxLayout;
@@ -78,6 +79,7 @@ QWidget* MainWindow::createGroup() {
     vLayout->addWidget(createButtons());
     vLayout->addWidget(createButtons());
     PanelWidget* panelWidget = new PanelWidget("..");
+    panels[index] = panelWidget;
     QTabWidget* tabWidget = new QTabWidget;
     tabWidget->addTab(panelWidget,panelWidget->getTitle());
     vLayout->addWidget(tabWidget);

@@ -14,12 +14,13 @@ void PanelWidget::focusInEvent(QFocusEvent* event)
     }
     if (mainWindow) {
         auto parent = parentWidget()->parentWidget()->parentWidget();
-        if (parent==mainWindow->groups[0])
-            mainWindow->focusedGroup = 0;
-        else if (parent==mainWindow->groups[1])
-            mainWindow->focusedGroup = 1;
+        if (parent==mainWindow->panels[0])
+            mainWindow->focusedPanel = 0;
+        else if (parent==mainWindow->panels[1])
+            mainWindow->focusedPanel = 1;
         else
-            mainWindow->focusedGroup = -1;
-        qDebug() << mainWindow->focusedGroup;
+            mainWindow->focusedPanel = -1;
+        qDebug() << mainWindow->focusedPanel;
     }
+    QTableView::focusInEvent(event);
 }

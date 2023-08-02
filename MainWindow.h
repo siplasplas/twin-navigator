@@ -2,13 +2,14 @@
 #define TWINNAVIGATOR_MAINWINDOW_H
 
 #include <QMainWindow>
+#include "PanelWidget.h"
 
 class MainWindow: public QMainWindow {
-    QWidget* createGroup();
+    QWidget* createGroup(int index);
     QWidget* createButtons();
 public:
-    QWidget *groups[2];
-    int focusedGroup = -1;
+    PanelWidget *panels[2];
+    int focusedPanel = -1;
     MainWindow(QWidget *parent = nullptr);
 };
 

@@ -51,6 +51,7 @@ public:
         setEditTriggers(QAbstractItemView::NoEditTriggers);
         verticalHeader()->setVisible(false);
         updateFiles();
+        selectRow(0);
     }
 
     QString getTitle() {

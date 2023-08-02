@@ -46,6 +46,7 @@ public:
         int isUp = 1;
         QStandardItemModel *model = new QStandardItemModel(panel->getFiles().count()+isUp, 3);
         setModel(model);
+        setSelectionMode(QAbstractItemView::SingleSelection);
         setSelectionBehavior(QAbstractItemView::SelectRows);
         setEditTriggers(QAbstractItemView::NoEditTriggers);
         verticalHeader()->setVisible(false);
@@ -93,24 +94,32 @@ public:
             nameItem->setIcon(iconProvider.icon(QFileInfo(fileInfo.filePath())));
         }
     }
+private:
+    void goSelected() {
+        QItemSelectionModel *selectionModel = this->selectionModel();
+        QModelIndexList selectedRows = selectionModel->selectedRows();
+        int isUp = 1;
+        if (!selectedRows.isEmpty()) {
+            int selectedRow = selectedRows.first().row();
+            if (selectedRow>=isUp) {
+                QFileInfo fileInfo = panel->getFiles()[selectedRow-isUp];
+                qDebug() << fileInfo.canonicalFilePath();
+            } else {
+
+            }
+        }
+    }
 protected:
     void keyPressEvent(QKeyEvent *event) override {
         if(event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return) {
             qDebug() << "Enter pressed";
-            QItemSelectionModel *selectionModel = this->selectionModel();
-            QModelIndexList selectedRows = selectionModel->selectedRows();
-            int isUp = 1;
-            if (!selectedRows.isEmpty()) {
-                int selectedRow = selectedRows.first().row();
-                if (selectedRow>=isUp) {
-                    QFileInfo fileInfo = panel->getFiles()[selectedRow-isUp];
-                    qDebug() << fileInfo.canonicalFilePath();
-                } else {
-
-                }
-            }
+            goSelected();
         }
         else QTableView::keyPressEvent(event);
+    }
+    void mouseDoubleClickEvent(QMouseEvent* event) override {
+        qDebug() << "Double click";
+        goSelected();
     }
 };
 

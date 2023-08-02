@@ -12,7 +12,6 @@ void PanelWidget::focusInEvent(QFocusEvent* event)
             mainWindow->focusedPanel = 1;
         else
             mainWindow->focusedPanel = -1;
-        qDebug() << mainWindow->focusedPanel;
     }
     QTableView::focusInEvent(event);
 }

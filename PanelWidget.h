@@ -34,6 +34,7 @@ public:
 
 class PanelWidget : public QTableView
 {
+Q_OBJECT
 private:
     FilePanel* panel;
     QWidget* mainWidget;
@@ -118,7 +119,7 @@ protected:
             qDebug() << "Enter pressed";
             goSelected();
         } else  if (event->key() == Qt::Key_Tab) {
-            QWidget::keyPressEvent(event);
+            emit changePanelSignal();
         }
         else QTableView::keyPressEvent(event);
     }
@@ -129,6 +130,8 @@ protected:
         qDebug() << "Double click";
         goSelected();
     }
+signals:
+    void changePanelSignal();
 };
 
 #endif //TABLEWIDGET_PANELWIDGET_H

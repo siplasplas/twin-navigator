@@ -8,6 +8,7 @@ class MainWindow: public QMainWindow {
     QWidget* createGroup(int index);
     QWidget* createButtons();
 public:
+    void handleChangePanel();
     PanelWidget *panels[2];
     int focusedPanel = -1;
     MainWindow(QWidget *parent = nullptr);

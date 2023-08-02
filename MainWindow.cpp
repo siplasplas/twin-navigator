@@ -79,6 +79,7 @@ QWidget* MainWindow::createGroup(int index) {
     vLayout->addWidget(createButtons());
     vLayout->addWidget(createButtons());
     PanelWidget* panelWidget = new PanelWidget(this, "..");
+    connect(panelWidget, &PanelWidget::changePanelSignal, this, &MainWindow::handleChangePanel);
     panels[index] = panelWidget;
     QTabWidget* tabWidget = new QTabWidget;
     tabWidget->addTab(panelWidget,panelWidget->getTitle());
@@ -87,4 +88,12 @@ QWidget* MainWindow::createGroup(int index) {
 
     widget->setLayout(vLayout);
     return widget;
+}
+
+void MainWindow::handleChangePanel() {
+    if (focusedPanel == 0)
+        focusedPanel = 1;
+    else
+        focusedPanel = 0;
+    panels[focusedPanel]->setFocus();
 }

@@ -36,10 +36,12 @@ class PanelWidget : public QTableView
 {
 private:
     FilePanel* panel;
+    QWidget* mainWidget;
 public:
-    PanelWidget(const QString& path, QWidget* parent = nullptr)
+    PanelWidget(QWidget* mainWidget, const QString& path, QWidget* parent = nullptr)
             : QTableView(parent), panel(panel)
     {
+        this->mainWidget = mainWidget;
         panel = new FilePanel(path);
         MyDelegate *delegate = new MyDelegate;
         setItemDelegate(delegate);

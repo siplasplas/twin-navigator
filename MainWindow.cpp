@@ -78,7 +78,7 @@ QWidget* MainWindow::createGroup(int index) {
 
     vLayout->addWidget(createButtons());
     vLayout->addWidget(createButtons());
-    PanelWidget* panelWidget = new PanelWidget("..");
+    PanelWidget* panelWidget = new PanelWidget(this, "..");
     panels[index] = panelWidget;
     QTabWidget* tabWidget = new QTabWidget;
     tabWidget->addTab(panelWidget,panelWidget->getTitle());

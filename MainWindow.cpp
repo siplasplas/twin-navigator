@@ -8,43 +8,43 @@
 #include <QToolButton>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
-        QMenuBar *menuBar = new QMenuBar;
-        QMenu *fileMenu = new QMenu("File", this);
-        menuBar->addMenu(fileMenu);
-        this->setMenuBar(menuBar);
-        QToolBar *toolbar = addToolBar("Main Toolbar");
+    QMenuBar *menuBar = new QMenuBar;
+    QMenu *fileMenu = new QMenu("File", this);
+    menuBar->addMenu(fileMenu);
+    this->setMenuBar(menuBar);
+    QToolBar *toolbar = addToolBar("Main Toolbar");
 
-        groups[0] = createGroup();
-        groups[1] = createGroup();
+    groups[0] = createGroup();
+    groups[1] = createGroup();
 
-        QHBoxLayout *hLayout = new QHBoxLayout;
-        hLayout->addWidget(groups[0]);
-        hLayout->addWidget(groups[1]);
+    QHBoxLayout *hLayout = new QHBoxLayout;
+    hLayout->addWidget(groups[0]);
+    hLayout->addWidget(groups[1]);
 
-        QLabel *label = new QLabel("Label", this);
-        QLineEdit *lineEdit = new QLineEdit(this);
+    QLabel *label = new QLabel("Label", this);
+    QLineEdit *lineEdit = new QLineEdit(this);
 
-        QVBoxLayout *vLayout = new QVBoxLayout;
-        vLayout->addLayout(hLayout);
+    QVBoxLayout *vLayout = new QVBoxLayout;
+    vLayout->addLayout(hLayout);
 
-        QHBoxLayout *hLayout2 = new QHBoxLayout;
-        hLayout2->addWidget(label);
-        hLayout2->addWidget(lineEdit);
-        vLayout->addLayout(hLayout2);
+    QHBoxLayout *hLayout2 = new QHBoxLayout;
+    hLayout2->addWidget(label);
+    hLayout2->addWidget(lineEdit);
+    vLayout->addLayout(hLayout2);
 
-        QWidget *widget = new QWidget;
-        widget->setLayout(vLayout);
-        setCentralWidget(widget);
+    QWidget *widget = new QWidget;
+    widget->setLayout(vLayout);
+    setCentralWidget(widget);
 
-        QStatusBar *statusBar = new QStatusBar;
-        for (int i = 0; i < 8; ++i) {
-            QToolButton *button = new QToolButton();
-            button->setText(QString("Section %1").arg(i+1));
-            button->setAutoRaise(true);
-            button->setContentsMargins(0,0,0,0);
-            statusBar->addWidget(button);
-        }
-        setStatusBar(statusBar);
+    QStatusBar *statusBar = new QStatusBar;
+    for (int i = 0; i < 8; ++i) {
+        QToolButton *button = new QToolButton();
+        button->setText(QString("Section %1").arg(i+1));
+        button->setAutoRaise(true);
+        button->setContentsMargins(0,0,0,0);
+        statusBar->addWidget(button);
+    }
+    setStatusBar(statusBar);
 }
 
 QWidget* MainWindow::createButtons() {

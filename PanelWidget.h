@@ -114,9 +114,18 @@ protected:
         if(event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return) {
             qDebug() << "Enter pressed";
             goSelected();
+        } else  if (event->key() == Qt::Key_Tab) {
+            QWidget::keyPressEvent(event);
         }
         else QTableView::keyPressEvent(event);
     }
+
+    void focusInEvent(QFocusEvent* event) override
+    {
+        auto parent = parentWidget();
+        QTableView::focusInEvent(event);
+    }
+
     void mouseDoubleClickEvent(QMouseEvent* event) override {
         qDebug() << "Double click";
         goSelected();

@@ -92,11 +92,17 @@ QWidget* MainWindow::createGroup(int index) {
 
     vLayout->addWidget(createButtons());
     vLayout->addWidget(createButtons());
-    PanelWidget* panelWidget = new PanelWidget(this, "..");
-    connect(panelWidget, &PanelWidget::changePanelSignal, this, &MainWindow::handleChangePanel);
+    int n = config.paths[index].size();
+    if (n==0)
+        config.paths[index].push_back(".");
+    n = config.paths[index].size();
     QTabWidget* tabWidget = new QTabWidget;
+    for (int i=0; i<n; i++) {
+        PanelWidget* panelWidget = new PanelWidget(this, config.paths[index][i]);
+        connect(panelWidget, &PanelWidget::changePanelSignal, this, &MainWindow::handleChangePanel);
+        tabWidget->addTab(panelWidget,panelWidget->getTitle());
+    }
     panels[index] = tabWidget;
-    tabWidget->addTab(panelWidget,panelWidget->getTitle());
     vLayout->addWidget(tabWidget);
     vLayout->addWidget(new QLabel("Label", this));
 

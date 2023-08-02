@@ -29,7 +29,7 @@ Config::Config() {
     }
     QJsonObject jsonObject = jsonDoc.object();
     for (int i=0; i<=1; i++) {
-        QString key = QString::number(i);
+        QString key = "paths"+QString::number(i);
         if (jsonObject.contains(key) && jsonObject[key].isArray()) {
             QJsonArray pathArray = jsonObject[key].toArray();
             for (const auto& path : pathArray) {

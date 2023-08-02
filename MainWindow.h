@@ -8,6 +8,14 @@ class MainWindow: public QMainWindow {
     QWidget* createGroup(int index);
     QWidget* createButtons();
     Config config;
+    void F3View();
+    void F4Edit();
+    void F5Copy();
+    void F6Move();
+    void F7Directory();
+    void F8Delete();
+    void F9Terminal();
+    void LastButtonExit();
 public:
     void handleChangePanel();
     QTabWidget *panels[2];

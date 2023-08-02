@@ -7,6 +7,8 @@
 #include <QStatusBar>
 #include <QToolButton>
 
+typedef void (MainWindow::*MainWindowMethod)();
+
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     QMenuBar *menuBar = new QMenuBar;
     QMenu *fileMenu = new QMenu("File", this);
@@ -38,12 +40,21 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     widget->setLayout(vLayout);
     setCentralWidget(widget);
 
+    QString StatusLabels[] = {"F3 View", "F4 Edit", "F5 Copy", "F6 Move",
+                              "F7 Directory", "F8 Delete", "F9 Terminal", "Alt+F4 Exit "};
+
+    const MainWindowMethod handlers[8] = {&MainWindow::F3View, &MainWindow::F4Edit,
+                                          &MainWindow::F5Copy, &MainWindow::F6Move,
+                                          &MainWindow::F7Directory, &MainWindow::F8Delete,
+                                          &MainWindow::F9Terminal, &MainWindow::LastButtonExit};
+
     QStatusBar *statusBar = new QStatusBar;
     for (int i = 0; i < 8; ++i) {
         QToolButton *button = new QToolButton();
-        button->setText(QString("Section %1").arg(i+1));
+        button->setText(StatusLabels[i]);
         button->setAutoRaise(true);
         button->setContentsMargins(0,0,0,0);
+        connect(button, &QToolButton::clicked, this, handlers[i]);
         statusBar->addWidget(button);
     }
     setStatusBar(statusBar);
@@ -131,4 +142,36 @@ void MainWindow::onAddTab()
 void MainWindow::onCloseTab()
 {
     qDebug() << "Control+W was pressed";
+}
+
+void MainWindow::F3View() {
+
+}
+
+void MainWindow::F4Edit() {
+
+}
+
+void MainWindow::F5Copy() {
+
+}
+
+void MainWindow::F6Move() {
+
+}
+
+void MainWindow::F7Directory() {
+
+}
+
+void MainWindow::F8Delete() {
+
+}
+
+void MainWindow::F9Terminal() {
+
+}
+
+void MainWindow::LastButtonExit() {
+    close();
 }

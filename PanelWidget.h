@@ -16,20 +16,28 @@
 
 class MyDelegate : public QStyledItemDelegate {
 public:
+    MyDelegate(QObject *parent)
+            : QStyledItemDelegate(parent) {}
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override {
         QStandardItemModel *model = qobject_cast<QStandardItemModel*>(const_cast<QAbstractItemModel*>(index.model()));
         MarkableItem *item = nullptr;
         if (model) {
             item = static_cast<MarkableItem*>(model->itemFromIndex(index));
         }
+        QStyleOptionViewItem opt = option;
         if (item && item->isMarked) {
-            QStyleOptionViewItem opt = option;
             opt.palette.setColor(QPalette::Text, Qt::red);
             opt.palette.setColor(QPalette::HighlightedText, Qt::red);
-            QStyledItemDelegate::paint(painter, opt, index);
         } else {
-            QStyledItemDelegate::paint(painter, option, index);
+            opt.palette.setColor(QPalette::Text, Qt::black);
+            opt.palette.setColor(QPalette::HighlightedText, Qt::black);
         }
+        QWidget *view = qobject_cast<QTableView*>(parent());
+        if (view && view->hasFocus())
+            opt.palette.setColor(QPalette::Highlight, QColor(48, 140, 198));
+        else
+            opt.palette.setColor(QPalette::Highlight, Qt::white);
+        QStyledItemDelegate::paint(painter, opt, index);
     }
 };
 
@@ -45,7 +53,7 @@ public:
     {
         this->mainWidget = mainWidget;
         panel = new FilePanel(path);
-        MyDelegate *delegate = new MyDelegate;
+        MyDelegate *delegate = new MyDelegate(this);
         setItemDelegate(delegate);
         int isUp = 1;
         QStandardItemModel *model = new QStandardItemModel(panel->getFiles().count()+isUp, 3);
@@ -91,7 +99,6 @@ public:
                 sizeItem->isMarked = true;
                 dateItem->isMarked = true;
             }
-            // Dodawanie elementów do widgetu
             model()->setItem(i+isUp, 0, nameItem);
             model()->setItem(i+isUp, 1, sizeItem);
             model()->setItem(i+isUp, 2, dateItem);

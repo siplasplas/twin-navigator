@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include "Config.h"
-#include "editor/editorwindow.h"
+#include "editor/EditorWindow.h"
 
 class MainWindow: public QMainWindow {
     QWidget* createGroup(int index);

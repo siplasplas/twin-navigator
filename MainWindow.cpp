@@ -6,6 +6,8 @@
 #include <QLineEdit>
 #include <QStatusBar>
 #include <QToolButton>
+#include <QScreen>
+#include <QGuiApplication>
 
 typedef void (MainWindow::*MainWindowMethod)();
 
@@ -75,7 +77,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
     focusedPanel = 0;
     panels[focusedPanel]->currentWidget()->setFocus();
-
+    QScreen *screen = QGuiApplication::primaryScreen();
+    QRect  screenGeometry = screen->geometry();
+    editorWindow.setGeometry(int(screenGeometry.width()*0.1), int(screenGeometry.height()*0.1),
+                           int(screenGeometry.width()*0.8), int(screenGeometry.height()*0.8));
     editorWindow.show();
 }
 

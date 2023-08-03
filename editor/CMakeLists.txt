@@ -1,4 +1,4 @@
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
+find_package(Qt5 COMPONENTS Widgets Svg REQUIRED)
 
 set(KF_DIR_SYNTAX "/usr/include/KF5/KSyntaxHighlighting")
 set(KF_LIB_SYNTAX KF5SyntaxHighlighting)
@@ -21,10 +21,13 @@ ENDIF()
 
 set(editorLibName builtin-editor)
 set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
+qt5_add_resources(QRC_SOURCES1 res/icons1.qrc)
 
 file(GLOB SOURCES *.cpp)
-add_library(${editorLibName} STATIC ${SOURCES})
+add_library(${editorLibName} STATIC ${SOURCES} ${QRC_SOURCES1})
 target_include_directories(${editorLibName} PRIVATE ${Qt5Widgets_INCLUDE_DIRS}
         ${KF_DIR_SYNTAX} ${BOTAN_DIR})
-target_link_libraries(${editorLibName} PRIVATE Qt5::Widgets ${KF_LIB_SYNTAX} X11 botan-2)
+target_link_libraries(${editorLibName} PRIVATE Qt5::Widgets Qt5::Svg ${KF_LIB_SYNTAX} X11 botan-2)
 

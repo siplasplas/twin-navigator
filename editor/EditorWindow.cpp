@@ -16,6 +16,12 @@
 #include <QGuiApplication>
 #include "CodeEditor.h"
 
+void initLibraryResources() {
+    Q_INIT_RESOURCE(icons1);
+}
+
+Q_CONSTRUCTOR_FUNCTION(initLibraryResources)
+
 EditorWindow::EditorWindow(QWidget *parent)
     : QMainWindow(parent)
 {

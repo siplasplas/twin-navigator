@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100"
+   height="100"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   version="1.0"
+   sodipodi:docname="Floppy_icon.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/home/andrzej/wazne/gitmy/twin-navigator/res/Floppy_icon32.png"
+   inkscape:export-xdpi="30.719999"
+   inkscape:export-ydpi="30.719999"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3152">
+      <stop
+         style="stop-color:#e6e6e6;stop-opacity:1;"
+         offset="0"
+         id="stop3154" />
+      <stop
+         style="stop-color:#808080;stop-opacity:1;"
+         offset="1"
+         id="stop3156" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3152"
+       id="linearGradient3158"
+       x1="30"
+       y1="12.5"
+       x2="70"
+       y2="37.5"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.3484766,0,0,1,-10.454298,0)" />
+    <filter
+       inkscape:collect="always"
+       id="filter6100"
+       x="-0.093214286"
+       y="-0.087"
+       width="1.1864286"
+       height="1.174">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.71875"
+         id="feGaussianBlur6102" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.77"
+     inkscape:cx="50.265252"
+     inkscape:cy="50.132626"
+     inkscape:document-units="px"
+     inkscape:current-layer="g1166"
+     width="100px"
+     height="100px"
+     inkscape:window-width="916"
+     inkscape:window-height="573"
+     inkscape:window-x="132"
+     inkscape:window-y="120"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Floppy Disk Icon</dc:title>
+        <dc:date>16 June 2007</dc:date>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>King of Hearts</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>Wikimedia Commons</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:description>A simple diagram of a floppy disk; can be used as an icon.</dc:description>
+        <cc:license
+           rdf:resource="http://web.resource.org/cc/PublicDomain" />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://web.resource.org/cc/PublicDomain">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g1166"
+       transform="matrix(1.1131385,0,0,1.1224201,-10.182468,-11.323861)">
+      <path
+         sodipodi:nodetypes="cccccc"
+         id="rect2167"
+         d="m 20,17.5 h 65 l 5,5 v 70 H 20 Z"
+         style="fill:#999999;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter6100)" />
+      <path
+         style="fill:#800000;fill-rule:evenodd;stroke:none;stroke-width:1.12536px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 14.894584,12.727631 h 75.17592 l 5.782763,5.475089 V 94.85397 H 14.894584 Z"
+         id="rect2160"
+         sodipodi:nodetypes="cccccc" />
+      <rect
+         style="fill:url(#linearGradient3158);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.16124px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="rect2163"
+         width="53.939064"
+         height="25"
+         x="30"
+         y="12.5" />
+      <rect
+         style="fill:#800000;fill-rule:evenodd;stroke:none;stroke-width:1.2401px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="rect2165"
+         width="15.378485"
+         height="20"
+         x="65.846085"
+         y="15.227717" />
+      <rect
+         style="fill:#ececec;fill-rule:evenodd;stroke:none;stroke-width:1.07785px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="rect3158"
+         width="62.257854"
+         height="41.052265"
+         x="24.525311"
+         y="47.5" />
+      <rect
+         style="fill:#666666;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="rect2169"
+         width="4"
+         height="3"
+         x="16.5"
+         y="82" />
+      <path
+         style="opacity:1;fill:#ff0000;fill-rule:evenodd;stroke:#fd0000;stroke-width:2.97995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 25.25,54.749987 H 86.271994"
+         id="path3145" />
+      <path
+         id="path3150"
+         d="M 25.747287,67.965043 H 85.687629"
+         style="fill:#ff0000;fill-rule:evenodd;stroke:#ff0000;stroke-width:2.95342;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         id="path3154"
+         d="M 25.892708,79.05209 H 86.329371"
+         style="fill:none;fill-rule:evenodd;stroke:#f90000;stroke-width:2.96562;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>

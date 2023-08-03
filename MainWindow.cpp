@@ -10,6 +10,10 @@
 typedef void (MainWindow::*MainWindowMethod)();
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
+    QIcon icon;
+    icon.addFile(":Floppy_icon.svg", QSize(72, 72));
+    setWindowIcon(icon);
+
     QMenuBar *menuBar = new QMenuBar;
     QMenu *fileMenu = new QMenu("File", this);
     QMenu *tabsMenu = new QMenu("Tabs", this);
@@ -71,6 +75,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
     focusedPanel = 0;
     panels[focusedPanel]->currentWidget()->setFocus();
+
+    editorWindow.show();
 }
 
 QWidget* MainWindow::createButtons() {

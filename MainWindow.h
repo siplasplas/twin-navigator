@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "Config.h"
+#include "editor/editorwindow.h"
 
 class MainWindow: public QMainWindow {
     QWidget* createGroup(int index);
@@ -16,6 +17,7 @@ class MainWindow: public QMainWindow {
     void F8Delete();
     void F9Terminal();
     void LastButtonExit();
+    EditorWindow editorWindow;
 public:
     void handleChangePanel();
     QTabWidget *panels[2];
